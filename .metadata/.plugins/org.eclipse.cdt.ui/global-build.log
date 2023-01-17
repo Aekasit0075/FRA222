@@ -1,0 +1,16 @@
+17:43:38 **** Incremental Build of configuration Debug for project TEST_F103C8T6 ****
+make -j16 all 
+arm-none-eabi-gcc -o "TEST_F103C8T6.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\FRA222\TEST_F103C8T6\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST_F103C8T6.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TEST_F103C8T6.elf
+ 
+arm-none-eabi-size   TEST_F103C8T6.elf 
+arm-none-eabi-objdump -h -S  TEST_F103C8T6.elf  > "TEST_F103C8T6.list"
+arm-none-eabi-objcopy  -O binary  TEST_F103C8T6.elf  "TEST_F103C8T6.bin"
+   text	   data	    bss	    dec	    hex	filename
+   4644	     20	   1572	   6236	   185c	TEST_F103C8T6.elf
+Finished building: default.size.stdout
+ 
+Finished building: TEST_F103C8T6.bin
+Finished building: TEST_F103C8T6.list
+ 
+ 
