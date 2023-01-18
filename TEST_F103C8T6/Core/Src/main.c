@@ -97,8 +97,7 @@ int main(void)
 	  uint32_t time = HAL_GetTick();
 	  if(time >= blinktime) {
 		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-		  blinktime += 500;
-	  }
+		  blinktime += 500;	  }
 
     /* USER CODE END WHILE */
 
