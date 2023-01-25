@@ -105,10 +105,9 @@ int main(void)
   {
 	  //01
 	  //Read PC13 and save variable to B1
-	  //GPIO_PinState B1 = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
-	  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, B1);
+//	  GPIO_PinState B1 = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, B1);
 
-//---------------------------------------------------------------------------------------
 	  //02
 	  //Read B1 and save state to GPIO state
 //	  B1.current = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
@@ -121,54 +120,16 @@ int main(void)
 //
 //	  }
 //	  B1.last = B1.current;
-//-----------------------------------------------------------------------------------------
+
 	  //03
 	  //blink with hal getTick
-//	  static uint32_t timestamp = 0;
-//
-//	  if(timestamp <= HAL_GetTick()){
-//		  timestamp = HAL_GetTick() + 500;
-//		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//	  }
-//
-//------------------------------------------------------------------------------------------
-	  //04
-	  //create variable
-	       static uint32_t BlinkDelay = 0;
+	  static uint32_t timestamp = 0;
 
-	      //read B1 and save state to gpio state structure
-	      B1.current = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+	  if(timestamp <= HAL_GetTick()){
+		  timestamp = HAL_GetTick() + 500;
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	  }
 
-	      //check if detect falling edge
-	      if(B1.last == 1 && B1.current == 0)
-	      {
-	          //toggle delay time
-	          if (BlinkDelay == 500)
-	          {
-	              BlinkDelay = 1000;
-	          }
-	          else
-	          {
-	              BlinkDelay = 500;
-	          }
-
-	      }
-	      //save current to last state for next loop
-	      B1.last = B1.current;
-
-	      // blink with hal_gettick();
-
-	      static uint32_t timestamp = 0;
-
-	      // current time is more than timestamp
-	      if(timestamp <= HAL_GetTick())
-	      {
-	          //set next toggle led event
-	          timestamp = HAL_GetTick() + BlinkDelay; // milli sec
-
-	          //toggle LED
-	          HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-	      }
 
     /* USER CODE END WHILE */
 
