@@ -42,13 +42,6 @@
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-typedef struct
-{
-		GPIO_PinState current;
-		GPIO_PinState last;
-}GpioStateSave;
-
-GpioStateSave B1 = {1,1}; // ตัวแรกเป็น B1.current อีกตัวเป็น B1.last
 
 /* USER CODE END PV */
 
@@ -102,29 +95,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //01
 	  //Read PC13 and save variable to B1
-//	  GPIO_PinState B1 = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
-//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, B1);
-
-	  //02
-	  //Read B1 and save state to GPIO state
-	  B1.current = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
-
-	  //Check if detect falling edge
-	  if(B1.last == 1 && B1.current == 0){
-		  // Toggle led LD2
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-
-
-	  }
-	  B1.last = B1.current;
+	  GPIO_PinState B1 = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_5, B1);
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
-
   /* USER CODE END 3 */
 }
 

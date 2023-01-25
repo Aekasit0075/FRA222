@@ -107,7 +107,6 @@ int main(void)
 //	  GPIO_PinState B1 = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
 //	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, B1);
 
-	  //02
 	  //Read B1 and save state to GPIO state
 	  B1.current = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
 
