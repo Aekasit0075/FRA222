@@ -94,13 +94,13 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+  uint32_t blinktime = HAL_GetTick()+ 500;
   while (1)
   {
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-	HAL_Delay(500);
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-	HAL_Delay(500);
-
+	  uint32_t time = HAL_GetTick();
+	  if(time >= blinktime){
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  blinktime += 1000;
 	  }
 
     /* USER CODE END WHILE */
@@ -108,6 +108,8 @@ int main(void)
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
+}
+
 /**
   * @brief System Clock Configuration
   * @retval None
