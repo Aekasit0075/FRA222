@@ -88,7 +88,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-uint32_t button = 0;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -96,19 +96,10 @@ uint32_t button = 0;
 
   while (1)
   {
-	  //Read the status of GPIO button pin
-	  button = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
-	  //Check if it high or low
-			  if(button == 0)
-			  {
-				  //if pressed - turn  led on
-				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-			  }
-			  //if not pressed - turn led off
-			  else
-			  {
-				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, RESET);
-			  }
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	HAL_Delay(500);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	HAL_Delay(500);
 
 	  }
 

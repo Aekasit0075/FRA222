@@ -1,4 +1,4 @@
-13:00:43 **** Incremental Build of configuration Debug for project Tutorial00 ****
+13:14:17 **** Incremental Build of configuration Debug for project Tutorial00 ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "Tutorial00.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\FRA222\Tutorial00\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Tutorial00.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,15 +7,22 @@ Finished building target: Tutorial00.elf
 arm-none-eabi-size   Tutorial00.elf 
 arm-none-eabi-objdump -h -S  Tutorial00.elf  > "Tutorial00.list"
    text	   data	    bss	    dec	    hex	filename
-   7756	     20	   1636	   9412	   24c4	Tutorial00.elf
+   7748	     20	   1636	   9404	   24bc	Tutorial00.elf
 Finished building: default.size.stdout
  
 Finished building: Tutorial00.list
  
-13:00:45 **** Incremental Build of configuration Debug for project Tutorial00 ****
+13:14:18 **** Incremental Build of configuration Debug for project Tutorial00 ****
 make -j16 all 
 arm-none-eabi-size   Tutorial00.elf 
    text	   data	    bss	    dec	    hex	filename
-   7756	     20	   1636	   9412	   24c4	Tutorial00.elf
+   7748	     20	   1636	   9404	   24bc	Tutorial00.elf
+Finished building: default.size.stdout
+ 
+13:16:17 **** Incremental Build of configuration Debug for project Tutorial00 ****
+make -j16 all 
+arm-none-eabi-size   Tutorial00.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7748	     20	   1636	   9404	   24bc	Tutorial00.elf
 Finished building: default.size.stdout
  

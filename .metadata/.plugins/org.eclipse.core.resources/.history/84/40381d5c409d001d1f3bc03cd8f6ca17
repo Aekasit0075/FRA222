@@ -97,18 +97,18 @@ uint32_t button = 0;
   while (1)
   {
 	  //Read the status of GPIO button pin
-	  button = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+	  button = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)
 	  //Check if it high or low
 			  if(button == 0)
 			  {
-				  //if pressed - turn  led on
 				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
 			  }
-			  //if not pressed - turn led off
 			  else
 			  {
 				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, RESET);
 			  }
+	  //if pressed - turn  led on
+	  //if not pressed - turn led off
 
 	  }
 
